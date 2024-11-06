@@ -128,3 +128,29 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# Arquivos de configuração do editor
+*.sublime-workspace
+*.sublime-project
+.idea/
+.vscode/
+
+# Arquivos de cache do sistema
+.DS_Store
+Thumbs.db
+
+# Arquivos de log
+*.log
+
+# Diretórios de build
+dist/
+build/
+out/
+
+# Arquivos temporários
+*.tmp
+*.temp
+
+# Arquivos de dependências
+package-lock.json
+yarn.lock
