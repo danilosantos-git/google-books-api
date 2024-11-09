@@ -11,11 +11,11 @@ const RatingDistribution = ({ query }) => {
     if (error) return <p>{error}</p>;
 
     return (
-        <PieChart width={500} height={500}> {/* Aumentado para 500x500 */}
+        <PieChart width={500} height={500}> { }
             <Pie
                 data={data.ratingsByGenre}
-                cx={250} // Centralizando o gráfico
-                cy={250} // Centralizando o gráfico
+                cx={250}
+                cy={250}
                 labelLine={false}
                 label={entry => entry.name}
                 outerRadius={100}

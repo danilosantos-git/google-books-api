@@ -23,7 +23,7 @@ const useFetchGraphData = (query) => {
 
                 setData({ ratingsByGenre, ratingsOverTime });
             } catch (err) {
-                console.error(err); // Log do erro
+                console.error(err);
                 setError('Erro ao buscar dados para os gráficos');
             } finally {
                 setLoading(false);
@@ -50,19 +50,16 @@ const useFetchGraphData = (query) => {
 
         books.forEach(book => {
             const publishedDate = book.volumeInfo.publishedDate;
-            const year = new Date(publishedDate).getFullYear(); // Obter apenas o ano
+            const year = new Date(publishedDate).getFullYear();
             const rating = book.volumeInfo.averageRating || 0;
 
-            // Verifica se o rating é um número válido
             if (!isNaN(rating)) {
                 ratingsOverTime[year] = (ratingsOverTime[year] || 0) + rating;
             }
         });
 
-        // Ordenar os dados por ano
         const sortedEntries = Object.entries(ratingsOverTime).sort((a, b) => a[0] - b[0]);
 
-        // Filtrar entradas com rating NaN ou 0
         return sortedEntries
             .filter(([name, rating]) => !isNaN(rating) && rating > 0)
             .map(([name, rating]) => ({ name, rating }));
