@@ -1,12 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { ThemeProvider, createTheme, CssBaseline } from '@mui/material';
 import BookList from './components/BookList';
-import { Container } from '@mui/material';
+import ThemeToggleButton from './components/ThemeToggleButton';
 
 const App = () => {
+  const [darkMode, setDarkMode] = useState(false);
+
+  const theme = createTheme({
+    palette: {
+      mode: darkMode ? 'dark' : 'light',
+    },
+  });
+
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+  };
+
   return (
-    <Container>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <ThemeToggleButton darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
       <BookList />
-    </Container>
+    </ThemeProvider>
   );
 };
 
