@@ -8,12 +8,6 @@ const useFetchGraphData = (query) => {
 
     useEffect(() => {
         const fetchGraphData = async () => {
-            if (!query) {
-                setError('Consulta vazia. Por favor, insira um termo de pesquisa.');
-                setLoading(false);
-                return;
-            }
-
             try {
                 const response = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=${query}&key=${process.env.REACT_APP_GOOGLE_BOOKS_API_KEY}&maxResults=40`);
                 const books = response.data.items;
