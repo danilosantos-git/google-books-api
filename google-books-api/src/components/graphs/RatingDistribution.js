@@ -11,7 +11,7 @@ const RatingDistribution = ({ query }) => {
     if (error) return <p>{error}</p>;
 
     return (
-        <PieChart width={500} height={500}> { }
+        <PieChart width={500} height={500} aria-label="Gráfico de Distribuição de Avaliações por Gênero">
             <Pie
                 data={data.ratingsByGenre}
                 cx={250}

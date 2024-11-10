@@ -19,7 +19,7 @@ const StyledIconButton = styled(IconButton)(({ theme }) => ({
 
 const ThemeToggleButton = ({ darkMode, toggleDarkMode }) => {
     return (
-        <StyledIconButton onClick={toggleDarkMode}>
+        <StyledIconButton onClick={toggleDarkMode} aria-label={darkMode ? "Ativar modo claro" : "Ativar modo escuro"}>
             {darkMode ? <WbSunnyIcon /> : <NightsStayIcon />}
         </StyledIconButton>
     );
