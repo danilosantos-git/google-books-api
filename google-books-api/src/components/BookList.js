@@ -56,6 +56,7 @@ const BookList = () => {
                     margin="normal"
                     value={filter}
                     onChange={handleFilterChange}
+                    aria-label="Filtrar por título ou autor"
                 />
                 <Grid container spacing={2}>
                     {books.map((book) => (
@@ -73,6 +74,7 @@ const BookList = () => {
                     margin="normal"
                     value={filter}
                     onChange={handleFilterChange}
+                    aria-label="Filtrar por gênero"
                 />
                 <Graphs query={debouncedFilter} />
             </TabPanel>
