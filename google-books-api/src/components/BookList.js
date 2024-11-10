@@ -5,6 +5,7 @@ import useFetchBooks from '../hooks/useFetchBooks';
 import useDebounce from '../hooks/useDebounce';
 import BookCard from './BookCard';
 import Graphs from './Graphs';
+import bookshelfLogo from '../assets/logo.svg';
 
 const TabPanel = (props) => {
     const { children, value, index, ...other } = props;
@@ -76,11 +77,15 @@ const BookList = () => {
     const currentBooks = books.slice(indexOfFirstBook, indexOfLastBook);
 
     return (
-        <div>
-            <Tabs value={activeTab} onChange={handleTabChange} indicatorColor="primary" textColor="primary">
-                <Tab label="Lista de Livros" />
-                <Tab label="Gráficos" />
-            </Tabs>
+        <div class="MuiBox-root css-19kzrtu">
+            <div style={{ display: 'flex', alignItems: 'center', marginBottom: '16px' }}>
+                <img src={bookshelfLogo} alt="Bookshelf Logo" style={{ height: '40px', marginRight: '16px' }} />
+                <Typography variant="h4" style={{ marginRight: '16px' }}>BookStats</Typography>
+                <Tabs value={activeTab} onChange={handleTabChange} indicatorColor="primary" textColor="primary">
+                    <Tab label="Lista de Livros" />
+                    <Tab label="Gráficos" />
+                </Tabs>
+            </div>
             <TabPanel value={activeTab} index={0}>
                 <TextField
                     label="Filtrar por título ou autor"
@@ -133,7 +138,7 @@ const BookList = () => {
                     onChange={handleFilterChange}
                     aria-label="Filtrar por gênero"
                 />
-                <Graphs query={debouncedFilter} />
+                <Graphs query={debouncedFilter || '*'} />
             </TabPanel>
         </div>
     );

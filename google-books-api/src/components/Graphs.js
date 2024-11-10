@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import RatingDistribution from './graphs/RatingDistribution';
 import RatingsOverTime from './graphs/RatingsOverTime';
 
-const Graphs = ({ query }) => {
+const Graphs = ({ query = '*' }) => {
     return (
         <Grid container spacing={2}>
             <Grid item xs={12}>
